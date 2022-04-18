@@ -1,11 +1,9 @@
-version: '3.7'
+version: "3.8"
 
 services:
-
-  sample-prod:
-    container_name: sample-prod
+  app:
+    container_name: app-prod
+    image: app-prod
     build:
       context: .
-      dockerfile: Dockerfile
-    # ports:
-    #   - '1337:80'
+      target: production
