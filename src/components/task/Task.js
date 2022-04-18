@@ -1,4 +1,7 @@
 import { useState } from "react"
+import { Redirect } from "react-router-dom"
+import { useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 import "./Task.css"
 export default function Task({
   title = "learn c++",
@@ -22,14 +25,26 @@ export default function Task({
       </div>
     )
   }
+  const history = useHistory()
+  console.log("history: ", history)
+  const [completed, setCompleted] = useState(false)
+  const handleClick = () => {
+    // todos
+    // history.push(`/task-page/${id}`)
+    setCompleted(true)
+  }
   return (
     <div className="task">
+      {completed && <Redirect to={`/task-page/${id}`} />}
       {!updateMode ? (
         <>
-          <div className="title">
+          {/* <Link to={"/task-page/" + id}> */}
+          {/* <Link to={`/task-page/${id}`}> */}
+          <div className="title" onClick={handleClick}>
             {title}
             {duration && <span> ({duration} mn)</span>}
           </div>
+          {/* </Link> */}
           <div>
             {/* {details && (
           <>

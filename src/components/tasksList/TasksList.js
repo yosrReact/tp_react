@@ -5,8 +5,8 @@ function TasksList(props) {
       {props.myTasks.map(function (x) {
         return (
           <Task
-            key={x.id}
-            id={x.id}
+            key={x._id}
+            id={x._id}
             title={x.title}
             duration={x.duration}
             // details={x.details}

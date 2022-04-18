@@ -1,6 +1,6 @@
 import "./TaskPage.css"
 import { useState, useEffect } from "react"
-import * as api from "../../services/tasks.service"
+import * as api from "../../services/tasks2.service"
 import Task from "../../components/task/Task"
 import TaskForm from "../../components/taskForm/TaskForm"
 import TasksList from "../../components/tasksList/TasksList"

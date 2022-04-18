@@ -16,3 +16,6 @@
 .actions {
     color: blue;
 }
+.title:hover{
+    cursor: pointer;
+}
