@@ -1,13 +1,20 @@
 # build environment
 FROM node:13.12.0-alpine as build
-WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm ci --silent
-RUN npm install react-scripts@3.4.1 -g --silent
-COPY . ./
+# WORKDIR /app
+# ENV PATH /app/node_modules/.bin:$PATH
+# COPY package.json ./
+# COPY package-lock.json ./
+# RUN npm ci --silent
+# RUN npm install --silent
+# COPY . ./
+# RUN npm run build
+WORKDIR /usr/app
+COPY package*.json ./
+RUN npm install
+COPY . .
 RUN npm run build
+# COPY public/* ./build
+# ENTRYPOINT [ "npm", "run", "start:prod"]
 
 # production environment
 # FROM nginx:stable-alpine
