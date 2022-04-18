@@ -18,7 +18,7 @@ RUN npm run build
 
 # production environment
 # FROM nginx:stable-alpine
-COPY --from=build /app/build /home/ubuntu/react-docker
+COPY /app/build /home/ubuntu/react-docker
 # new
 # COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 # EXPOSE 80
