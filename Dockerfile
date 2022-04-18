@@ -8,7 +8,7 @@ FROM node:13.12.0-alpine as build
 # RUN npm install --silent
 # COPY . ./
 # RUN npm run build
-WORKDIR /usr/app
+WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
