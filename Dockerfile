@@ -8,7 +8,8 @@ FROM node:13.12.0-alpine as build
 # RUN npm install --silent
 # COPY . ./
 # RUN npm run build
-WORKDIR /app
+# WORKDIR /app
+
 COPY package*.json ./
 RUN npm install
 COPY . .
@@ -18,7 +19,7 @@ RUN npm run build
 
 # production environment
 # FROM nginx:stable-alpine
-COPY /app/build /home/ubuntu/react-docker
+COPY ./ /home/ubuntu/react-docker
 # new
 # COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 # EXPOSE 80
