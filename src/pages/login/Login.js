@@ -33,7 +33,9 @@ function Login() {
         />
       </div>
       <div>
-        <button onClick={handleClick}>Se connecter</button>
+        <button data-testid="submit" onClick={handleClick}>
+          Se connecter
+        </button>
       </div>
     </div>
   )

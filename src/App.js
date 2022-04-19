@@ -18,13 +18,18 @@ function App() {
   const [user, setUser] = useState({})
   useEffect(() => {
     const fetchMe = async () => {
-      const user = await me()
-      setUser(user)
-      console.log("user: ", user)
+      try {
+        const user = await me()
+        setUser(user)
+        console.log("user: ", user)
+      } catch (e) {
+        console.log("error")
+      }
     }
     fetchMe()
   }, [])
   if (token && user.role === "admin") {
+    // if (true) {
     // private routes
 
     return (

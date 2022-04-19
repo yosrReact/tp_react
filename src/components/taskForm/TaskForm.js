@@ -7,6 +7,7 @@ export default function TaskForm(props) {
   const [title, setTitle] = useState("")
   const handleAddTask = () => {
     props.addTask(title)
+    setTitle("")
   }
   useEffect(() => {
     // console.log("useffect")
@@ -24,12 +25,13 @@ export default function TaskForm(props) {
       </ul>
       <form action="" className="form">
         <input
+          aria-label="Title"
           type="text"
           name="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button type="button" onClick={handleAddTask}>
+        <button data-testid="submit" type="button" onClick={handleAddTask}>
           {addTask}
         </button>
       </form>
