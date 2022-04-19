@@ -35,7 +35,7 @@ export default function Task({
   }
   return (
     <div className="task">
-      {completed && <Redirect to={`/task-page/${id}`} />}
+      {completed && <Redirect to={`/teacher/task-page/${id}`} />}
       {!updateMode ? (
         <>
           {/* <Link to={"/task-page/" + id}> */}

@@ -1,8 +1,17 @@
 import { useState } from "react"
+import { login } from "../../services/tasks2.service"
+import { useHistory } from "react-router-dom"
 function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const handleClick = () => {}
+  const history = useHistory()
+  const handleClick = async () => {
+    const token = await login({ email, password })
+    console.log("token: ", token)
+    localStorage.setItem("token", token)
+    // history.push("/")
+    window.location = "/"
+  }
   return (
     <div>
       <div>
