@@ -2,6 +2,7 @@ import { useState } from "react"
 function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const handleClick = () => {}
   return (
     <div>
       <div>
@@ -23,7 +24,7 @@ function Login() {
         />
       </div>
       <div>
-        <button>Se connecter</button>
+        <button onClick={handleClick}>Se connecter</button>
       </div>
     </div>
   )
