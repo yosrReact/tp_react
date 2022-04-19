@@ -1,8 +1,8 @@
-import Menu from "./../menu/Menu"
-function Layout({ children }) {
+import Menu from "../menu/Menu"
+function Layout({ children, role }) {
   return (
     <div>
-      <Menu />
+      <Menu role={role} />
       {children}
     </div>
   )
