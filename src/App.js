@@ -18,6 +18,9 @@ function App() {
       <Router>
         <Layout>
           <Switch>
+            <Route exact path="/">
+              <Redirect to="/teacher" />
+            </Route>
             <Route path="/teacher">
               <TeacherRoutes />
             </Route>

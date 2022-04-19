@@ -83,19 +83,42 @@ export default function TaskPage() {
   //   }
   // }, [searchValue])
 
-  const addTask = (title) => {
-    setTasks([...tasks, { id: tasks.length + 1, title: title }])
+  const addTask = async (title) => {
+    try {
+      setLoading(true)
+      const newTask = await api.addTask({
+        title,
+      })
+      setTasks([...tasks, newTask])
+      setLoading(false)
+    } catch (e) {
+      console.log("error")
+    }
   }
-  const deleteTask = (id) => {
-    const newTasks = tasks.filter((task) => task.id !== id)
-    setTasks(newTasks)
+  const deleteTask = async (id) => {
+    try {
+      setLoading(true)
+      await api.deleteTask(id)
+      const newTasks = tasks.filter((task) => task._id !== id)
+      setTasks(newTasks)
+      setLoading(false)
+    } catch (e) {
+      console.log("error")
+    }
   }
 
-  const updateTask = (id, title) => {
-    const newTasks = tasks.map((task) =>
-      task.id === id ? { id, title: title } : task
-    )
-    setTasks(newTasks)
+  const updateTask = async (id, title) => {
+    try {
+      setLoading(true)
+      const newTask = await api.updateTask(id, {
+        title,
+      })
+      const newTasks = tasks.map((task) => (task._id === id ? newTask : task))
+      setTasks(newTasks)
+      setLoading(false)
+    } catch (e) {
+      console.log("error")
+    }
   }
   return (
     <div className="App">
