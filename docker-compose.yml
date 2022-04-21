@@ -1,13 +1,11 @@
-version: "3.8"
-
+version: "2"
 services:
-  app:
-    container_name: app-dev
-    image: app-dev
-    build:
-      context: .
-      target: development
-    volumes:
-      - ./src:/app/src
-    ports:
-      - 3000:3000
+nginx-react:
+container_name: ngixreactapp
+build:
+context: .
+dockerfile: Dockerfile
+ports:
+- 80:80
+environment:
+NODE_ENV: production
